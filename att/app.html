@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario AT&T</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #00A8E0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+            width: 400px;
+            color: black;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #00A8E0;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0076A8;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f87;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="AT&T_logo_2016.svg.png" alt="AT&T Logo" class="logo">
+        <h2>Formulario de Datos</h2>
+        <input type="text" id="numeroPortar" placeholder="Número a portar">
+        <input type="text" id="nip" placeholder="NIP">
+        <input type="text" id="zona" placeholder="Zona">
+        <input type="text" id="asesor" placeholder="Asesor">
+        <input type="text" id="icc" placeholder="ICC">
+        <button onclick="copiarAlPortapapeles()">Copiar Datos</button>
+    </div>
+    <script>
+        function copiarAlPortapapeles() {
+            const datos = `Número a portar: ${document.getElementById('numeroPortar').value}\n` +
+                          `NIP: ${document.getElementById('nip').value}\n` +
+                          `Zona: ${document.getElementById('zona').value}\n` +
+                          `Asesor: ${document.getElementById('asesor').value}\n` +
+                          `ICC: ${document.getElementById('icc').value}`;
+            navigator.clipboard.writeText(datos).then(() => {
+                alert("Datos copiados al portapapeles");
+            });
+        }
+    </script>
+</body>
+</html>
